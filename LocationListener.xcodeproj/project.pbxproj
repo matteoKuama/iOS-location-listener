@@ -13,6 +13,7 @@
 		CA9F0337263AA72500286C70 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA9F0336263AA72500286C70 /* Preview Assets.xcassets */; };
 		CA9F0342263AA72500286C70 /* LocationListenerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9F0341263AA72500286C70 /* LocationListenerTests.swift */; };
 		CA9F034D263AA72500286C70 /* LocationListenerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9F034C263AA72500286C70 /* LocationListenerUITests.swift */; };
+		CA9F035B263AB93500286C70 /* LocationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9F035A263AB93500286C70 /* LocationRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		CA9F0348263AA72500286C70 /* LocationListenerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LocationListenerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA9F034C263AA72500286C70 /* LocationListenerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationListenerUITests.swift; sourceTree = "<group>"; };
 		CA9F034E263AA72500286C70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CA9F035A263AB93500286C70 /* LocationRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 				CA9F0333263AA72500286C70 /* Assets.xcassets */,
 				CA9F0338263AA72500286C70 /* Info.plist */,
 				CA9F0335263AA72500286C70 /* Preview Content */,
+				CA9F035A263AB93500286C70 /* LocationRequest.swift */,
 			);
 			path = LocationListener;
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA9F035B263AB93500286C70 /* LocationRequest.swift in Sources */,
 				CA9F0332263AA72300286C70 /* ContentView.swift in Sources */,
 				CA9F0330263AA72300286C70 /* LocationListenerApp.swift in Sources */,
 			);
