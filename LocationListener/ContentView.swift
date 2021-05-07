@@ -9,14 +9,22 @@ import SwiftUI
 import CoreLocation
 
 struct ContentView: View {
-    let locationReader = LocationReader()
+//    let locationReader = LocationReader()
+    let locationRequest = LocationRequest()
     
     var body: some View {
-        Button("Get Location", action:{
-            locationReader.setupObserver()
-        }
-        )
-        .padding(.all)
+        VStack(content: {
+            Button("Get Location", action:{
+//                locationReader.setupObserver()
+                locationRequest.startUpdatingLocation()
+            }
+            ).padding(.all)
+            Button("Stop Location", action:{
+                locationRequest.stopMonitoring()
+//                locationReader.removeObserver()
+            }).padding(.all)
+            
+        })
         
     }
     
@@ -44,6 +52,10 @@ class LocationReader {
                 print("\(name): \(location)")
             }
         }
+    }
+    
+    func removeObserver(){
+        notificationCenter.removeObserver(self)
     }
 }
 

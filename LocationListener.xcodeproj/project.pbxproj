@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CA646C2F2642D56D0092B7CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA646C2E2642D56D0092B7CF /* AppDelegate.swift */; };
 		CA9F0330263AA72300286C70 /* LocationListenerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9F032F263AA72300286C70 /* LocationListenerApp.swift */; };
 		CA9F0332263AA72300286C70 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9F0331263AA72300286C70 /* ContentView.swift */; };
 		CA9F0334263AA72500286C70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA9F0333263AA72500286C70 /* Assets.xcassets */; };
@@ -34,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CA646C2E2642D56D0092B7CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CA9F032C263AA72300286C70 /* LocationListener.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LocationListener.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA9F032F263AA72300286C70 /* LocationListenerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationListenerApp.swift; sourceTree = "<group>"; };
 		CA9F0331263AA72300286C70 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -74,13 +76,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CA873AEC2643F8D3000552AB /* LocationManager */ = {
+			isa = PBXGroup;
+			children = (
+				CA9F035A263AB93500286C70 /* LocationRequest.swift */,
+			);
+			path = LocationManager;
+			sourceTree = "<group>";
+		};
 		CA9F0323263AA72300286C70 = {
 			isa = PBXGroup;
 			children = (
 				CA9F032E263AA72300286C70 /* LocationListener */,
 				CA9F0340263AA72500286C70 /* LocationListenerTests */,
 				CA9F034B263AA72500286C70 /* LocationListenerUITests */,
-				CA9F032D263AA72300286C70 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -92,17 +101,19 @@
 				CA9F0348263AA72500286C70 /* LocationListenerUITests.xctest */,
 			);
 			name = Products;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		CA9F032E263AA72300286C70 /* LocationListener */ = {
 			isa = PBXGroup;
 			children = (
+				CA873AEC2643F8D3000552AB /* LocationManager */,
 				CA9F032F263AA72300286C70 /* LocationListenerApp.swift */,
 				CA9F0331263AA72300286C70 /* ContentView.swift */,
 				CA9F0333263AA72500286C70 /* Assets.xcassets */,
 				CA9F0338263AA72500286C70 /* Info.plist */,
 				CA9F0335263AA72500286C70 /* Preview Content */,
-				CA9F035A263AB93500286C70 /* LocationRequest.swift */,
+				CA646C2E2642D56D0092B7CF /* AppDelegate.swift */,
 			);
 			path = LocationListener;
 			sourceTree = "<group>";
@@ -127,6 +138,7 @@
 		CA9F034B263AA72500286C70 /* LocationListenerUITests */ = {
 			isa = PBXGroup;
 			children = (
+				CA9F032D263AA72300286C70 /* Products */,
 				CA9F034C263AA72500286C70 /* LocationListenerUITests.swift */,
 				CA9F034E263AA72500286C70 /* Info.plist */,
 			);
@@ -262,6 +274,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA646C2F2642D56D0092B7CF /* AppDelegate.swift in Sources */,
 				CA9F035B263AB93500286C70 /* LocationRequest.swift in Sources */,
 				CA9F0332263AA72300286C70 /* ContentView.swift in Sources */,
 				CA9F0330263AA72300286C70 /* LocationListenerApp.swift in Sources */,
@@ -423,6 +436,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"LocationListener/Preview Content\"";
+				DEVELOPMENT_TEAM = DZA2GZYF9B;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = LocationListener/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -444,6 +458,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"LocationListener/Preview Content\"";
+				DEVELOPMENT_TEAM = DZA2GZYF9B;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = LocationListener/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
