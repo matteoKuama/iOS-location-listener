@@ -7,23 +7,47 @@
 
 import SwiftUI
 import CoreLocation
+import Combine
 
 struct ContentView: View {
 //    let locationReader = LocationReader()
-    let locationRequest = LocationRequest()
+//    let locationRequest = LocationRequest()
+//    @State var locationRequest = CLLocationManager.publishLocation()
+//    var locationPublisher = CLLocationManager.publishLocation()
+
+    let stream = StreamLocation()
+    
+        @State var cancellable: AnyCancellable? = nil
     
     var body: some View {
+        let publisher = stream.subject
         VStack(content: {
             Button("Get Location", action:{
+                
+                stream.startUpdatingLocations()
+                DispatchQueue.main.async{
+                    self.cancellable = publisher?.sink{
+                        s in
+                        print("\(s.coordinate.latitude),\(s.coordinate.longitude)")
+                    }
+                }
 //                locationReader.setupObserver()
-                locationRequest.startUpdatingLocation()
+//                locationRequest.startUpdatingLocation()
             }
             ).padding(.all)
+//            .onReceive(publisher) {
+//                s in
+//                print("\(s.coordinate.latitude)-\(s.coordinate.longitude)")
+//            }
             Button("Stop Location", action:{
-                locationRequest.stopMonitoring()
-//                locationReader.removeObserver()
+                stream.stopUpdates()
+                DispatchQueue.main.async {
+                    self.cancellable?.cancel()
+                }
             }).padding(.all)
-            
+//            .onReceive(locationPublisher, perform: { location in
+//                print("lat: \(location.coordinate.latitude), lon: \(location.coordinate.longitude)")
+//            })
         })
         
     }

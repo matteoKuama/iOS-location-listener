@@ -14,4 +14,6 @@ struct LocationListenerApp: App {
             ContentView()
         }
     }
+    
+    
 }

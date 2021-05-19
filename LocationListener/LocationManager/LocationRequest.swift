@@ -43,7 +43,7 @@ class LocationRequest: NSObject, CLLocationManagerDelegate {
         if(!checkAuthorization()){
             print("Error: no permission granted")
         }
-        locationManager.registerNotifications()
+//        locationManager.registerNotifications()
     }
     
     /**
@@ -121,7 +121,7 @@ class LocationRequest: NSObject, CLLocationManagerDelegate {
         print("did exit region")
         let circRegion = region as!CLCircularRegion
         
-        CLLocationManager.scheduleLocalNotification(manager)(alert: "did exit region, lat:\(circRegion.center.latitude) long: \(circRegion.center.longitude)")
+        CLLocationManager.scheduleLocalNotification(manager)(alert: "did exit region, lat:\(circRegion.center.latitude) long: \(circRegion.center.longitude)", repeats: nil, timeInterval: nil)
         let location = ["latitude" : circRegion.center.latitude, "longitude": circRegion.center.longitude]
         print("\(TimeInterval(Date().timeIntervalSinceNow)) lat: \(circRegion.center.latitude), long: \(circRegion.center.latitude)")
         notificationCenter.post(name: Notification.Name("Location"), object: self, userInfo: location)
@@ -171,7 +171,7 @@ extension CLLocationManager: UNUserNotificationCenterDelegate {
         completionHandler([.badge, .sound])
     }
     
-    func scheduleLocalNotification(alert:String) {
+    func scheduleLocalNotification(alert:String, repeats: Bool?, timeInterval: Double?) {
         let content = UNMutableNotificationContent()
         let requestIdentifier = UUID.init().uuidString
         
@@ -180,11 +180,22 @@ extension CLLocationManager: UNUserNotificationCenterDelegate {
         content.body = alert
         content.sound = UNNotificationSound.default
         
-        let trigger = UNTimeIntervalNotificationTrigger.init(timeInterval: 1.0, repeats: false)
+        let trigger = UNTimeIntervalNotificationTrigger.init(timeInterval: timeInterval ?? 1.0, repeats: repeats ?? false)
+        if(trigger.repeats){
+            UNUserNotificationCenter.current().removeAllDeliveredNotifications()
+        }
         let request = UNNotificationRequest(identifier: requestIdentifier, content: content, trigger: trigger)
         UNUserNotificationCenter.current().add(request) { (error:Error?) in
             print("Notification Register Success")
         }
+    }
+    
+    func removeLocalNotifications(){
+        let notificationCenter = UNUserNotificationCenter.current()
+        notificationCenter.getPendingNotificationRequests(completionHandler: {
+            _ in
+            notificationCenter.removeAllPendingNotificationRequests()
+        })
     }
     
 }
